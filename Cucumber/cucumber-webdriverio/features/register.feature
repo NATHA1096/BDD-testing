@@ -28,6 +28,6 @@ Scenario Outline: Register successful
 
     Examples:
     | nombre   | apellido  | correo                      |idUniversidad                     |checkbox |idDepartamento |idPrograma               |password   |acepta |
-    | nathalia | alvarez   | prueba3exitosa@example.com  | Universidad de los Andes         |true     |               |Maestría en Arquitectura |12345678   |true   |
-    | nathalia | alvarez   | prueba4exitosa@example.com  | Pontificia Universidad Javeriana |         |Dpto Biología  |                         |12345678   |true   |   
+    | nathalia | alvarez   | prueba4exitosa@example.com  | Universidad de los Andes         |true     |               |Maestría en Arquitectura |12345678   |true   |
+    | nathalia | alvarez   | prueba5exitosa@example.com  | Pontificia Universidad Javeriana |         |Dpto Biología  |                         |12345678   |true   |   
       
