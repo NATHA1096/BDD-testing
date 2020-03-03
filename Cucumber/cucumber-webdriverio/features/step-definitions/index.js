@@ -11,6 +11,10 @@ Given('I go to losestudiantes home screen', () => {
 });
 
 When('I open the login screen', () => {
+    if($('button[id=cuenta]').isDisplayed()) {
+      $('button[id=cuenta]').click()
+      $('a[role="menuitem"]').click()
+    }
     const btnIngresar = $('button=Ingresar');
     btnIngresar.waitForExist(5000);
     btnIngresar.waitForDisplayed(5000);
@@ -62,16 +66,15 @@ When(/^I fill with (.*), (.*), (.*), (.*), (.*), (.*), (.*), (.*), (.*)$/ , (nom
         checkboxsel.click();
     }
     
-    if(idDepartamento){
+    if(idDepartamento != ''){
       var idDepartamentosel = cajaSignUp.$('select[name="idDepartamento"]');
       idDepartamentosel.waitForExist(5000);
       idDepartamentosel.click();
       idDepartamentosel.keys(idDepartamento);
     }
     
-    if(idPrograma){
+    if(idPrograma != ''){
       var idProgramasel = cajaSignUp.$('select[name="idPrograma"]');
-      idProgramasel.waitForExist(5000);
       idProgramasel.click();
       idProgramasel.keys(idPrograma);
     }    
@@ -93,18 +96,18 @@ When('I try to register', () => {
   });
   
 Then('I expect to see {string}', error => {
-   $('.aviso.alert.alert-danger').waitForDisplayed(8000);
+   $('.aviso.alert.alert-danger').waitForDisplayed(10000);
    var alertText = browser.$('.aviso.alert.alert-danger').getText();
    expect(alertText).to.include(error);
 });
 
 Then('I expect to log in', () => {
-    const btnAccunt = $("#cuenta");
-    btnAccunt.waitForExist(10000);
+    const btnAccunt = $('button[id=cuenta]');
+    btnAccunt.waitForExist(20000);
  });
 
  Then('I expect to sign up', () => {
-    $('.sweet-alert').waitForDisplayed(10000);
+    $('.sweet-alert').waitForDisplayed(8000);
    var alertText = browser.$('.text-muted.lead').getText();
    expect(alertText).to.include('Verifica tu correo y activa tu cuenta');   
  });

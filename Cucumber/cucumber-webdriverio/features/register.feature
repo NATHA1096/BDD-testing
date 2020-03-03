@@ -27,7 +27,7 @@ Scenario Outline: Register successful
     Then I expect to sign up
 
     Examples:
-    | nombre   | apellido  | correo                      |idUniversidad                     |checkbox |idDepartamento |idPrograma |password   |acepta |
-    | nathalia | alvarez   | prueba1exitosa@example.com  | universidad-de-los-andes         |true     |               |15         |12345678   |true   |
-    | nathalia | alvarez   | prueba2exitosa@example.com  | pontificia-universidad-javeriana |         |403            |           |           |true   |   
+    | nombre   | apellido  | correo                      |idUniversidad                     |checkbox |idDepartamento |idPrograma               |password   |acepta |
+    | nathalia | alvarez   | prueba3exitosa@example.com  | Universidad de los Andes         |true     |               |Maestría en Arquitectura |12345678   |true   |
+    | nathalia | alvarez   | prueba4exitosa@example.com  | Pontificia Universidad Javeriana |         |Dpto Biología  |                         |12345678   |true   |   
       
