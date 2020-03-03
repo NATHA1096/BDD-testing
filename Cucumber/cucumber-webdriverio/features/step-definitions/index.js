@@ -35,7 +35,7 @@ When('I try to login', () => {
   cajaLogIn.$('button=Ingresar').click();
 });
 
-When(/^I fill with (.*), (.*), (.*), (.*), (.*), (.*), (.*), (.*)$/ , (nombre, apellido, correo, idUniversidad, checkbox, idDepartamento, password, acepta) => {
+When(/^I fill with (.*), (.*), (.*), (.*), (.*), (.*), (.*), (.*), (.*)$/ , (nombre, apellido, correo, idUniversidad, checkbox, idDepartamento, idPrograma, password, acepta) => {
     var cajaSignUp = $('.cajaSignUp');
     cajaSignUp.waitForExist(9000);
     cajaSignUp.waitForDisplayed(9000);
@@ -60,12 +60,21 @@ When(/^I fill with (.*), (.*), (.*), (.*), (.*), (.*), (.*), (.*)$/ , (nombre, a
     if(checkbox){
         var checkboxsel = cajaSignUp.$('input[type="checkbox"]');
         checkboxsel.click();
-    }    
+    }
     
-    var idDepartamentosel = cajaSignUp.$('select[name="idDepartamento"]');
-    idDepartamentosel.waitForExist(6000);
-    idDepartamentosel.click();
-    idDepartamentosel.keys(idDepartamento);
+    if(idDepartamento){
+      var idDepartamentosel = cajaSignUp.$('select[name="idDepartamento"]');
+      idDepartamentosel.waitForExist(5000);
+      idDepartamentosel.click();
+      idDepartamentosel.keys(idDepartamento);
+    }
+    
+    if(idPrograma){
+      var idProgramasel = cajaSignUp.$('select[name="idPrograma"]');
+      idProgramasel.waitForExist(5000);
+      idProgramasel.click();
+      idProgramasel.keys(idPrograma);
+    }    
     
     var passwordInput = cajaSignUp.$('input[name="password"]');
     passwordInput.click();
@@ -91,11 +100,11 @@ Then('I expect to see {string}', error => {
 
 Then('I expect to log in', () => {
     const btnAccunt = $("#cuenta");
-    btnAccunt.waitForExist(5000);
+    btnAccunt.waitForExist(10000);
  });
 
  Then('I expect to sign up', () => {
     $('.sweet-alert').waitForDisplayed(10000);
    var alertText = browser.$('.text-muted.lead').getText();
-   expect(alertText).to.include('Verifica tu correo y activa tu cuenta');
+   expect(alertText).to.include('Verifica tu correo y activa tu cuenta');   
  });
